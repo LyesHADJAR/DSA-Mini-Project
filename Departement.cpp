@@ -4,13 +4,15 @@
 class Department {
 private:
     std::string name;
+    int departementId;
     float budget;
     float amountSpent;
     float performance;
     int ranking;
 
 public:
-    Department(const std::string &deptName, int initialBudget) {
+    explicit Department(const std::string &deptName, int ID) {
+        departementId = ID;
         name = deptName;
         budget = 10000000;
         amountSpent = 0;
@@ -39,8 +41,12 @@ public:
         return amountSpent;
     }
 
+    [[nodiscard]] int geID() const {
+        return departementId;
+    }
+
     void updatePerformance(float newPerformance) {
-        performance = newPerformance;
+        performance = newPerformance; // THE FUNCTION IS THE SUM OF THE FACTURES IN A GIVEN DAY
     }
 
     void updateRanking(int newRank) {
