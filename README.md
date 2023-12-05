@@ -1,9 +1,10 @@
 # DSA-Mini-Project
 
-##### The ENMS manages : 
+### The ENMS manages : 
 - the power consumption 
 - Billing by its customers on its national network
-#### Networks organization :
+
+### Networks organization :
 Networks  -> Regions -> cities -> districts
 
 - Every customer can consume electricity from the network and/or inject into it.
@@ -22,7 +23,7 @@ Networks  -> Regions -> cities -> districts
   - region
 
 
-##### Marketing department :
+### Marketing department :
 - Available in each city
 - has specific budget
 - Its role :
@@ -36,13 +37,13 @@ Networks  -> Regions -> cities -> districts
 - [n-10/n-1] deps get -10%
 
 
-##### National prize :
+### National prize :
 - Monthly
 - to the one injected the most
 - Cumulative month after month
 
 
-##### ECMS :
+### ECMS :
 - Keeps data about : 
 	- Information about each household
 	- data about electricity consumption/production by each household
