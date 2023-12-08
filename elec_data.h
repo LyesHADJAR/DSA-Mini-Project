@@ -8,16 +8,30 @@
 
 class ELEC_DATA{
     private:
-    unsigned int consumedEnergy;
-    unsigned int producedEnergy;
+    unsigned long consumedEnergy;
+    unsigned long producedEnergy;
     public:
-        void setConsumedEnergy(string c){this->consumedEnergy=c;}
-        void setProducedEnergy(string p){this->producedEnergy=p;}
-        string getConsumedEnergy(){return this->consumedEnergy;}
-        string getProducedEnergy(){return this->producedEnergy;}
-        Date* getDate();
+    ELEC_DATA ELEC_DATA(unsigned long CE, unsigned long PE){
+        void setConsumedEnergy( CE );
+        void setProducedEnergy( PE ); 
+    };  
+    //Setters
+        void setConsumedEnergy(unsigned int  c){
+            this->consumedEnergy=c;}
 
+        void setProducedEnergy(unsifgned int p){
+            this->producedEnergy=p;}
+    //Getters
+        unsigned long getConsumedEnergy(){
+            return this->consumedEnergy;}
+
+        unsigned long getProducedEnergy(){
+            return this->producedEnergy;}
+    //Other functions
         unsigned long DailyBill(customer* cust,date* date){
+            
+            //Smt to use from customer and date classes
+
             return getConsumedEnergy()*5-getProducedEnergy()*3;
         }
 
