@@ -1,8 +1,11 @@
+#ifndef City_H
+#define City_H
+
 #include <iostream>
-#include<string>
+#include "region.h"
 #include "district.h"
-#include"Departement.h"
-#include"BinarySearchTree.h"
+#include "Department.h"
+#include "binarySearchTree.h"
 using namespace std;
 
 class City {
@@ -10,22 +13,16 @@ class City {
         string City_Name;
         BinarySearchTree<District> Citydistricts;
         Department Department_Of_This_City;
+        Region region;
     public:
-        City(string NewCity=""):City_Name{NewCity}{
-            Department_Of_This_City.setDepartmentName(NewCity);
-            
-        }
-        void setCityName(string City)
-        {
-            City_Name=City;
-        }
-        string getCityName()const {
-            return City_Name;
-        }
-        void addDistrict(const District & NewDistrict) {
-            Citydistricts.insert(NewDistrict);
-        }
-        District* findDistrict(const District & DistrictValue) {
-    return Citydistricts.findNode(DistrictValue);
-}
+        City(const string&, Region&);
+        void setCityName(const string&);
+        string getCityName()const;
+        void addDistrict(const District &);
+        BinarySearchTree<District>::BinaryNode* findDistrict(const District &) ;
+        float computeCityPerformance(BinarySearchTree<District>::BinaryNode*)const;
+        BinarySearchTree<District>::BinaryNode* getRoot();
+        Region getRegion()const;
 };
+
+#endif

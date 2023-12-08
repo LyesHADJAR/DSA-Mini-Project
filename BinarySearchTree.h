@@ -24,6 +24,20 @@ template <typename Comparable>
 class BinarySearchTree
 {
   public:
+
+  struct BinaryNode
+    {
+        Comparable element;
+        BinaryNode *left;
+        BinaryNode *right;
+
+        BinaryNode( const Comparable & theElement, BinaryNode *lt, BinaryNode *rt )
+          : element{ theElement }, left{ lt }, right{ rt } { }
+        
+        BinaryNode( Comparable && theElement, BinaryNode *lt, BinaryNode *rt )
+          : element{ std::move( theElement ) }, left{ lt }, right{ rt } { }
+    };
+
     BinarySearchTree( ) : root{ nullptr }
     {
     }
@@ -153,25 +167,19 @@ class BinarySearchTree
     {
         remove( x, root );
     }
-    const typename BinarySearchTree<Comparable>::BinaryNode* findNode(const Comparable& x) const
+    BinaryNode* findNode(const Comparable& x) const
 {
     return findNode(x, root);
 }
+    
+
+    BinaryNode* getRoot()const {
+        return root;
+    }
 
     private:
 
-    struct BinaryNode
-    {
-        Comparable element;
-        BinaryNode *left;
-        BinaryNode *right;
-
-        BinaryNode( const Comparable & theElement, BinaryNode *lt, BinaryNode *rt )
-          : element{ theElement }, left{ lt }, right{ rt } { }
-        
-        BinaryNode( Comparable && theElement, BinaryNode *lt, BinaryNode *rt )
-          : element{ std::move( theElement ) }, left{ lt }, right{ rt } { }
-    };
+    
 
     BinaryNode *root;
 
@@ -335,7 +343,7 @@ class BinarySearchTree
     }
 
     
-const BinaryNode* findNode(const Comparable& x, const BinaryNode* t) const
+BinaryNode* findNode(const Comparable& x, const BinaryNode* t) const
 {
     if (t == nullptr)
         return nullptr;

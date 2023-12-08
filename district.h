@@ -1,32 +1,28 @@
+#ifndef District_H
+#define District_H
+
 #include <iostream>
 #include <vector>
-#include<algorithm>
-#include "Household.h"
+#include <algorithm>
+#include "household.h"
+#include "city.h"
 #include"BinarySearchTree.h"
 using namespace std;
 
 class District {
 public:
-    District(const string&);
+    District(const string&, City&);
     void addHouseholder(const Household&);
     void removeHouseholder(const Household&);
-    Household* findHouseholder(const Household &);
+    BinarySearchTree<Household>::BinaryNode* findHouseholder(const Household &);
+    float computeDistrictPerformance(BinarySearchTree<Household>::BinaryNode*)const;
+    BinarySearchTree<Household>::BinaryNode* getRoot();
 
 private:
     string districtName;
     BinarySearchTree<Household> districtHouseholders;
+    City city;
 }; 
 
-District::District(const string& name="") : districtName(name) {}
+#endif
 
-void District::addHouseholder(const Household& customer) {
-    districtHouseholders.insert(customer);
-}
-
-void District::removeHouseholder(const Household& customer) {
-    districtHouseholders.remove(customer);
-}
-
-Household* District::findHouseholder(const Household & customer) {
-    return districtHouseholders.findNode(customer);
-}
