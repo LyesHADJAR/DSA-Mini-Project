@@ -1,0 +1,3 @@
+Z:/DSA coding/klch yemchi/cmake-build-debug/CMakeFiles/klch_yemchi.dir
+Z:/DSA coding/klch yemchi/cmake-build-debug/CMakeFiles/edit_cache.dir
+Z:/DSA coding/klch yemchi/cmake-build-debug/CMakeFiles/rebuild_cache.dir
